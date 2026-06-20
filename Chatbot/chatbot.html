@@ -69,10 +69,6 @@
             }
 
             function ChatMessages({ chatMessages }) {
-                // const [chatMessages, setChatMessages] = array; // array destructuring
-                // const chatMessages = array[0];
-                // const setChatMessages = array[1]; // Updater function, tells React that the data changed so it will update the HTML
-
                 return (
                     <>
                         {chatMessages.map((chatMessage) => {
@@ -89,24 +85,7 @@
             }
 
             function App() {
-                const [chatMessages, setChatMessages] = React.useState([{
-                    message: 'Hello chatbot',
-                    sender: 'user',
-                    id: crypto.randomUUID()
-                }, {
-                    message: 'Hello! How can I help you?',
-                    sender: 'robot',
-                    id: crypto.randomUUID()
-                }, {
-                    message: "Can you get me today's date?",
-                    sender: 'user',
-                    id: crypto.randomUUID()
-                }, {
-                    message: 'Todays is 20th June',
-                    sender: 'robot',
-                    id: crypto.randomUUID()
-                }]);
-                
+                const [chatMessages, setChatMessages] = React.useState([]);
 
                 return (
                     <>
