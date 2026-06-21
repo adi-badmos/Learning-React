@@ -49,7 +49,7 @@
                             sender: 'user',
                             id: crypto.randomUUID()
                         }, {
-                            message: 'Loading...',
+                            message: <img src="loading-spinner.gif" className="loading-spinner" />,
                             sender: 'robot',
                             id: crypto.randomUUID()
                         }
@@ -117,15 +117,21 @@
                 )
             }
 
-            function ChatMessages({ chatMessages }) {
-                const chatMessageRef = React.useRef(null);
+            function useAutoScroll({ dependencies }) {
+                const containerRef = React.useRef(null);
 
                 React.useEffect(() => {
-                    const containerElem = chatMessageRef.current;
+                    const containerElem = containerRef.current;
                     if(containerElem) {
                         containerElem.scrollTop = containerElem.scrollHeight;
                     }
-                }, [chatMessages]);
+                }, dependencies);
+
+                return containerRef;
+            }
+
+            function ChatMessages({ chatMessages }) {
+                const chatMessageRef = useAutoScroll([chatMessages]);
                 
                 return (
                     <div
@@ -146,10 +152,15 @@
             }
 
             function App() {
-                const [chatMessages, setChatMessages] = React.useState([]);
+                const [ chatMessages, setChatMessages ] = React.useState([]);
 
                 return (
                     <div className="app-container">
+                        {chatMessages.length === 0 && (
+                            <p className="welcome-message">
+                                Welcome to the chatbot project! Send a message using the textbox below.
+                            </p>
+                        )}
                         <ChatMessages
                             chatMessages={chatMessages}
                         />
