@@ -2,9 +2,21 @@ import { useState } from 'react';
 import { ChatInput } from './components/ChatInput';
 import { ChatMessages } from './components/ChatMessages';
 import './App.css';
+import { useEffect } from 'react';
+import { Chatbot } from 'supersimpledev';
 
 function App() {
-    const [ chatMessages, setChatMessages ] = useState([]);
+    const [ chatMessages, setChatMessages ] = useState(JSON.parse(localStorage.getItem('messages')) || []);
+
+    useEffect(() => {
+        Chatbot.addResponses({
+            'goodbye': 'Goodbye. Have a great day!'
+        });
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem('messages', JSON.stringify(chatMessages));
+    }, [chatMessages]);
 
     return (
         <div className="app-container">
@@ -24,4 +36,4 @@ function App() {
     );
 }
 
-export default App
+export default App;
