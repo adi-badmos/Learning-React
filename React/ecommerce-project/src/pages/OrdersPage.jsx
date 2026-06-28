@@ -8,8 +8,6 @@ import OrdersFavicon from '../assets/images/orders-favicon.png';
 import BuyAgainIcon from '../assets/images/icons/buy-again.png';
 import './OrdersPage.css';
 
-console.log("OrdersPage rendered");
-
 export function OrdersPage({ cart }) {
     const [orders, setOrders] = useState([]);
 
