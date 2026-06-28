@@ -1,11 +1,11 @@
 import axios from 'axios';
 import dayjs from 'dayjs';
 import { useEffect, useState, Fragment } from 'react';
-import { formatMoney } from '../utils/money.js';
+import { formatMoney } from '../../utils/money.js';
 import { Link } from 'react-router';
-import { Header } from '../components/Header';
-import OrdersFavicon from '../assets/images/orders-favicon.png';
-import BuyAgainIcon from '../assets/images/icons/buy-again.png';
+import { Header } from '../../components/Header.jsx';
+import OrdersFavicon from '../../assets/images/orders-favicon.png';
+import BuyAgainIcon from '../../assets/images/icons/buy-again.png';
 import './OrdersPage.css';
 
 export function OrdersPage({ cart }) {
