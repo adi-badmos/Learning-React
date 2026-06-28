@@ -7,7 +7,7 @@ import CheckmarkIcon from '../assets/images/icons/checkmark.png';
 import './HomePage.css';
 
 export function HomePage({ cart }) {
-    const [ products, setProducts ] = useState([]);
+    const [products, setProducts] = useState([]);
 
     useEffect(() => {
         axios.get('/api/products')
