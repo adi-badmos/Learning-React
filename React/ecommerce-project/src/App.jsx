@@ -8,6 +8,8 @@ import { TrackingPage } from './pages/TrackingPage.jsx';
 import { NotFoundPage } from './pages/NotFoundPage.jsx';
 import './App.css';
 
+window.axios = axios;
+
 function App() {
     const [ cart, setCart ] = useState([]);
 

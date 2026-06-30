@@ -115,7 +115,9 @@
   margin-bottom: 5px;
 }
 
-.checkout-page .product-quantity .link-primary {
+.checkout-page .product-quantity  {
+  width: 50px;
+}.link-primary {
   margin-left: 3px;
 }
 
@@ -208,4 +210,14 @@
 
   margin-top: 20px;
   margin-bottom: 19px;
+}
+
+.update-quantity {
+  width: 50px;
+}
+
+.product-quantity {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
